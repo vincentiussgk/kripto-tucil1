@@ -1,3 +1,5 @@
+from textwrap import wrap
+
 def vigenere_encrypt(plaintext, key):
     plaintext = plaintext.upper()
 
@@ -18,9 +20,6 @@ def vigenere_encrypt(plaintext, key):
     for i in range (len(plaintextrdy)):
         keyrdy += keyprep[i % len(keyprep)]
 
-    print(plaintextrdy)
-    print(keyrdy)
-
     plain_int = [ord(i) for i in plaintextrdy]
     key_int = [ord(i) for i in keyrdy]
 
@@ -29,10 +28,8 @@ def vigenere_encrypt(plaintext, key):
         charvalue = (plain_int[i] + key_int[i]) % 26
         cyphertext = cyphertext + chr(charvalue + 65)
 
-    print("encrypt: ", cyphertext)
-
-
-vigenere_encrypt("charchar","sawoenaksekali")
+    cyphertextSeparated = wrap(cyphertext, 5)
+    return (cyphertext, cyphertextSeparated)
 
 def vigenere_decrypt(cyphertext, key):
     cyphertext = cyphertext.upper()
@@ -54,9 +51,6 @@ def vigenere_decrypt(cyphertext, key):
     for i in range (len(cyphertextrdy)):
         keyrdy += keyprep[i % len(keyprep)]
 
-    print(cyphertextrdy)
-    print(keyrdy)
-
     cyp_int = [ord(i) for i in cyphertextrdy]
     key_int = [ord(i) for i in keyrdy]
 
@@ -65,7 +59,6 @@ def vigenere_decrypt(cyphertext, key):
         charvalue = (cyp_int[i] - key_int[i]) % 26
         plaintext = plaintext + chr(charvalue + 65)
 
-    print("decrypt: ", plaintext)
-
-vigenere_decrypt("uhwfguab","sawoenaksekali")
+    plaintextSeparated = wrap(plaintext, 5)
+    return (plaintext, plaintextSeparated)
 

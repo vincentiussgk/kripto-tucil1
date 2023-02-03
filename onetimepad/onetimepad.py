@@ -1,3 +1,5 @@
+from textwrap import wrap
+
 def onetimepad_encrypt(plaintext, key):
     plaintext = plaintext.upper()
 
@@ -16,7 +18,7 @@ def onetimepad_encrypt(plaintext, key):
     
 
     if (len(plaintextrdy) != len(keyprep)):
-        print ("Panjang alfabet kunci tidak sama dengan plaintext!")
+        return (0, "Panjang alfabet kunci tidak sama dengan plaintext!")
     else:
         print(plaintextrdy)
         print(keyprep)
@@ -29,7 +31,8 @@ def onetimepad_encrypt(plaintext, key):
             charvalue = (plain_int[i] + key_int[i]) % 26
             cyphertext = cyphertext + chr(charvalue + 65)
 
-        print("encrypt: ", cyphertext)
+        cyphertextSeparated = wrap(cyphertext, 5)
+        return (cyphertext, cyphertextSeparated)
 
 
 onetimepad_encrypt("onetimepad","tbfrgfarfm")
@@ -51,7 +54,7 @@ def onetimepad_decrypt(cyphertext, key):
             keyprep += key[i]
 
     if (len(cyphertextrdy) != len(keyprep)):
-        print ("Panjang alfabet kunci tidak sama dengan plaintext!")
+        return (0, "Panjang alfabet kunci tidak sama dengan plaintext!")
     else:
         print(cyphertextrdy)
         print(keyprep)
@@ -64,7 +67,8 @@ def onetimepad_decrypt(cyphertext, key):
             charvalue = (cyp_int[i] - key_int[i]) % 26
             plaintext = plaintext + chr(charvalue + 65)
 
-        print("decrypt: ", plaintext)
+        plaintextSeparated = wrap(plaintext, 5)
+        return (plaintext, plaintextSeparated)
 
 onetimepad_decrypt("HOJKOREGFP","tbfrgfarfm")
 
