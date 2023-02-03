@@ -7,6 +7,11 @@ root = Tk()
 root.title("Kriptografi, Tucil 1")
 root.geometry("600x600")
 
+vigenereTitle = Label(
+    text="Vigenere Cypher"
+)
+vigenereTitle.pack()
+
 def returnHome():
     root.destroy()
     import main 

@@ -8,6 +8,11 @@ root = Tk()
 root.title("Kriptografi, Tucil 1")
 root.geometry("600x600")
 
+otpTitle = Label(
+    text="One Time Pad"
+)
+otpTitle.pack()
+
 def returnHome():
     root.destroy()
     import main 

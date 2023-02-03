@@ -1,3 +1,5 @@
+from textwrap import wrap
+
 def keyprep(key):
     alphabet = 'ABCDEFGHIKLMNOPQRSTUVWXYZ'
     keyclean = ''
@@ -104,7 +106,8 @@ def playfair_encrypt(plaintext, key):
             cyphertext += matrix[i_temp_x][j_temp_y]
             cyphertext += matrix[j_temp_x][i_temp_y]
 
-    print(cyphertext)
+    cyphertextSeparated = wrap(cyphertext, 5)
+    return (cyphertext, cyphertextSeparated)
 
 def playfair_decrypt(cyphertext, key):
     keytable = keyprep(key)
@@ -156,7 +159,8 @@ def playfair_decrypt(cyphertext, key):
         if(plaintext[i] != "X"):
             plaintextclean += plaintext[i]
     
-    print(plaintextclean)
+    plaintextcleanSeparated = wrap(plaintext, 5)
+    return (plaintext, plaintextcleanSeparated)
 
 playfair_encrypt("temui ibu nanti malam", "JALAN GANESHA SEPULUH")
 
