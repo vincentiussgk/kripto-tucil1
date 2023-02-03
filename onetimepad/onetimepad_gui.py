@@ -65,7 +65,7 @@ oneTimePadInputTextbox.pack()
 # oneTimePad Key 
 
 oneTimePadKeyLabel = Label(
-    text="ONETIMEPAD"
+    text="Enter Key"
 )
 oneTimePadKeyLabel.pack()
 

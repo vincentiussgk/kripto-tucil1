@@ -64,7 +64,7 @@ playfairInputTextbox.pack()
 # playfair Key 
 
 playfairKeyLabel = Label(
-    text="playfair"
+    text="Enter Key"
 )
 playfairKeyLabel.pack()
 
